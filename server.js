@@ -1,4 +1,3 @@
-#!/usr/local/bin/node
 /*
     File: server.js
     By: Peter Torelli
@@ -59,9 +58,9 @@ var analyzer = new function() {
         dataBits: 8,
         parity: 'none',
         flowControl: false,
-        parser: this.serialport.parsers.readline('\r')
+        parser: this.serialport.parsers.readline('\r'),
+        autoOpen:false
       },
-      false,
       // Error function
       function(err) { throw err; }
     );
@@ -69,7 +68,7 @@ var analyzer = new function() {
     var portobj = this.port;
     var object = this;
     // Now open the port and connect the handlers (req'd by docs)
-    this.port.open(function(err) {
+    this.port.open(function (err) {
       var newdata = {};
       if (err) 
         throw err;
@@ -91,7 +90,7 @@ var analyzer = new function() {
             newdata = {};
           } else if (result == 'enddata') {
             // Here's the PUSH call to the CLIENT
-            io.emit('newdata', JSON.stringify(newdata));
+            io.emit('newdata', JSON.stringify(newdata)); // Here the results are send to the client. Gonna need add my code here
             newdata = {};
           } else if (m = result.match(/(\S+): (\d+)/)) {
             // Key:Val pair
