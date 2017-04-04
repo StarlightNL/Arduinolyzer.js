@@ -6,9 +6,7 @@ A logic analyzer for the Arduino, implemented in Node.js and HTML5
 
 Overview:
 
-Refer to the Instructables page:
-
-[tbd]
+Refer to the Instructables page: [Arduinolyzer.js: Turn Your Arduino Into a Logic Analyzer](http://www.instructables.com/id/Arduinolyzerjs-Turn-your-Arduino-into-a-Logic-Anal/?ALLSTEPS)
 
 Todo:
 
@@ -27,6 +25,7 @@ server.js
    reduce dependencies.
 -- Reloads of the client '/' and '/index.html' should reset the serial
    port. This would allow interrupting the hardware via client.
+-- Add the values of the waves in bytes for miss-transmitted data.
 
 index.html
 -- Add time-axes and markers
